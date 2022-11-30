@@ -7,6 +7,7 @@ const connectToDB = () => {
     })
     .catch((err) => {
       console.log(err.message);
+      console.log("object");
       process.exit(1);
     });
 };
