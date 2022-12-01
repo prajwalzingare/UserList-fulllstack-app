@@ -1,4 +1,4 @@
-// without this error will occur it willl not coonect to database
+// without this error will occur it willl not connect to database because it will not going to get url of database connection
 require("dotenv").config();
 
 const express = require("express");
@@ -11,6 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 connectToDB();
-app.get("/", userRouts);
+app.use("/", userRouts);
 
 module.exports = app;
