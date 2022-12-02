@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+//for understanding and trail
+// const mongoose = require("../models/userModel");
 const connectToDB = () => {
   mongoose
     .connect(process.env.MONGO_URL)
