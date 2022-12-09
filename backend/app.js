@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //it will run the connect db function and form connection.
 connectToDB();
+
 /*
 we cant write this much in app js as we write in router file so no need to write that instanc of that use only "use"
 

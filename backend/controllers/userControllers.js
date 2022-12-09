@@ -1,6 +1,6 @@
 /* This file is all about logic that we have to build for our application */
 
-//heare we require user model which we created using mongoose model and schema for the use of creating new user and etc
+//heare we require user model which we created using mongoose model and schema for the use of creating new user finding it deleting it and getting the user from collection.
 const User = require("../models/userModel");
 
 //controller logic start from hear.we are writing logic/controllerss to transfer to router folder.
@@ -11,7 +11,8 @@ const home = (req, res) => {
   // console.log(req.body);
 };
 
-//logic for creating user and that we will transfer to router for further transmission.
+/*logic for creating user and that we will transfer to router for further transmission.*/
+
 const createUser = async (req, res) => {
   try {
     const { name, email } = req.body;
@@ -23,7 +24,7 @@ const createUser = async (req, res) => {
     if (UserExits) {
       throw new Error("Email already Exists");
     }
-    //Inserting into database
+    //Inserting into database we can also use insertMany method.
     const user = User.create({ name, email });
     res.status(201).json({
       sucess: true,
@@ -33,6 +34,7 @@ const createUser = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+  //for checking the method of request.
   console.log(req.method);
 };
 
@@ -56,7 +58,7 @@ const getUser = async (req, res) => {
 
 //logic for edit user
 const editUser = async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   console.log(req.body);
   try {
     //req.body is bringing all data from database.
@@ -64,6 +66,7 @@ const editUser = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "User updated Successfully",
+      user,
     });
   } catch (error) {
     console.log(error);
@@ -75,6 +78,25 @@ const editUser = async (req, res) => {
   console.log(req.method);
 };
 
-//logic for delet user
+//logic for delete user
 
-module.exports = { home, createUser, getUser, editUser };
+const deleteUser = async (req, res) => {
+  try {
+    // console.log(req.params.email);
+    // console.log(req.params.id);
+    // console.log(req.body);
+
+    const user = await User.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      success: true,
+      message: "User deleted Successfully",
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/* Exporting the module for using in routers */
+
+module.exports = { home, createUser, getUser, editUser, deleteUser };
