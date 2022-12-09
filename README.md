@@ -10,3 +10,4 @@ building project work in progress
 7. how to use dotenv for hidding our important secrets.
 8. mongoose connect is use only for connection it is dont have to do anything about usemodel or user schema.
 9. Method learn while writing code.
+10. frond end created.
