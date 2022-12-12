@@ -11,3 +11,4 @@ building project work in progress
 8. mongoose connect is use only for connection it is dont have to do anything about usemodel or user schema.
 9. Method learn while writing code.
 10. frond end created.
+11. learned about routing in express refrence to video for better understanding(https://youtu.be/2GAw4RVxnr0)
