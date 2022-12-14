@@ -3,13 +3,14 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
+var cors = require("cors");
 const connectToDB = require("./config/db");
 const userRouts = require("./routers/userRouts");
 
 //Middlewere it is necessy to parse data it works
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 //it will run the connect db function and form connection.
 connectToDB();
 

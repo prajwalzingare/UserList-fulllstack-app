@@ -5,8 +5,8 @@ export const UserList = () => {
   // write the logic hear
 
   //we have to store the data
-  const [UserData, setUserData] = useState(null);
-
+  const [UserData, setUserData] = useState("");
+  console.log(UserData);
   /* 1st write the logic for fetching the user how will you fetch the user create the function to fetch the user. */
   const fetchUserData = async () => {
     const resp = await axios.get("/getUser");
@@ -19,9 +19,10 @@ export const UserList = () => {
   };
 
   // to run the fetchUserData function use useeffect  hook. it is bad practice to put async and await in useeffect hook.you can use but dont use that. we will add dependanci array
+
   useEffect(() => {
     fetchUserData();
-  }, [UserData]);
+  }, []);
 
   /* we bring the data with help of axios but how can we show to our page so for that we have to map the whole page on fetchuserdata or the data we have stored. */
   //function to edit the user
@@ -38,11 +39,20 @@ export const UserList = () => {
       });
       console.log(resp);
     }
+    fetchUserData();
   };
   // function for deletting the user
   const handleDelete = async (userId) => {
-    const resp = await axios.delete(`/deleteUser/${userId}`);
+    const resp = await axios
+      .get(`/deleteUser/${userId}`)
+      .then(() => {
+        "deleted";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(resp);
+    fetchUserData();
   };
 
   return (
