@@ -1,28 +1,32 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 // write logic hear
-const Form = () => {
+const Form = (props) => {
   /* want to store the email and name of perdon in backend for this we have to use usestate hook   */
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
   /*function for send the data or sumbiting the data. for that we have created data object which will send username and useremail through axios post method install axios in front end.*/
-
   const submitData = async () => {
     const data = {
       name: userName,
       email: userEmail,
     };
     const res = await axios.post("/createUser", data);
-    console.log(res);
+    if (res.status === 201 && res.data.sucess) {
+      console.log("User created", res);
+      props.fetchUserData();
+    }
   };
+
   //function for default action that belongs to the event will not occur to handle the default.
   const handleSubmit = (event) => {
     event.preventDefault();
 
     //on sumbmit the data submitData function willl run
     submitData();
-    //to  blank the input fields
+
+    //to blank the input fields
     setUserName("");
     setUserEmail("");
   };
@@ -30,7 +34,6 @@ const Form = () => {
   //jsx part that will render on our browser.
   return (
     <div>
-      {" "}
       <form onSubmit={handleSubmit}>
         <section className="text-gray-600 body-font relative">
           <div className="container px-5 py-8 mx-auto">
