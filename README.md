@@ -1,5 +1,38 @@
-# todolist-fsjsbootcamp
-building project work in progress
+# User-list-fsjsbootcamp
+
+By prajwal zingare
+
+ ![hitesh choudhary](https://img.shields.io/badge/Prajwal--Zingare-JS--Devloper-green)
+
+
+![prajwal zingare](https://img.shields.io/badge/Full--fledge-JS--project-red)
+
+![HTML & js](https://img.shields.io/badge/HTML-js-orange)
+![MERN-Assighnment](https://img.shields.io/badge/MERN-Assighnment-orange)
+
+
+---
+![myproject](./userlist.png)
+
+---
+## 🛠 Technologies used
+
+> HTML
+
+> CSS
+
+> Javascript
+
+> React.js
+
+> Moongoose
+
+> Express.js
+
+> Mongodb
+
+
+---
 # Learning Through project
 1. Mongoose use.
 2. mongodb schema
@@ -14,3 +47,5 @@ building project work in progress
 11. learned about routing in express refrence to video for better understanding(https://youtu.be/2GAw4RVxnr0)
 12. try to learn app write authentication from docs.
 project completed and revise
+
+## Short Video
