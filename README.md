@@ -1,4 +1,4 @@
-# User-list-fsjsbootcamp
+# User-list MERN Project
 
 By prajwal zingare
 
